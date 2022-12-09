@@ -1,0 +1,974 @@
+﻿:root {
+    --primary-font-weight: 400;
+    --secondary-font-weight: 500;
+    --title-font-weight: 700;
+
+    --primary-font-size: 14px;
+    --secondary-font-size: 16px;
+       
+    --accent-color: #2196F3;
+    --active-accent-color: #188CE8;
+    --black-color:  #000000;
+    --primary-white-color: #FFFFFF;
+    --secondary-white-color: rgba(255, 255, 255, 0.6);
+    --main-text-color: #757575;
+    --title-text-color: #212121;
+
+    --background-white: #F5F5F5;
+    --background-black: #2F303A;
+    --primary-background: #F5F4FA;
+    --secondary-background: #EEEEEE;
+
+    --border-color: #ECECEC;
+    }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /*font-weight: var(--primary-font-weight); 400 normal РАБОТАЕТ ОТ БРАУЗЕРА*/
+    font-size: var(--primary-font-size);
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+
+    background-color: var(--primary-white-color);
+    color: var(--main-text-color);
+}
+
+/* УТИЛИТЫ */
+h1, h2, h3, h4, h5, h6, 
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}   
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;    
+}
+.link {
+text-decoration: none;
+}
+
+.container {
+    width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*Header and Footer*/
+header {
+    border-bottom: 1px solid var(--border-color);
+}
+.page-header {
+    display: flex;
+    align-items: center;
+    /* padding-top: 24px;
+    padding-bottom: 25px; */
+}
+
+
+/* Logo */
+.logo { 
+    margin-right: 93px;
+    /* ВОПРОС
+        display: block;
+        padding-top: 24px;
+        padding-bottom: 25px; хотела увеличить площадь ссылки, как у Репеты, но паддинги элементов и контейнера суммируются , а, считаю, для размера контейнера грамотнее ставить паддинги .page-header, а не устанавливать размер за счет паддингов ссылок. Как сделать и грамотно и площадь ссылок увеличить? */
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: var(--title-font-weight);
+    font-size: 26px;
+    line-height: 1.19;
+    color: var(--accent-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+.logo-black {
+    color: var(--black-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+.logo-white {
+    color: var(--primary-white-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+.logo:hover, 
+.logo:focus {
+    color: var(--active-accent-color);
+    }
+
+.logo-black:hover,
+.logo-black:focus,
+.logo-white:hover,
+.logo-white:focus {
+    color: var(--active-accent-color);
+    }
+
+
+/* Site nav*/
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+.site-nav {
+    
+    display: flex;
+    min-width: 281px;
+    justify-content: space-between;
+}
+.site-nav .link {
+    display: inline-block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    font-weight: var(--secondary-font-weight);
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    color: var(--title-text-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.site-nav .link:hover,
+.site-nav .link:focus {
+    color: var(--accent-color);
+}
+.site-nav .link.current {
+    color: var(--accent-color);
+}
+.site-nav .current {
+    position:relative;
+}
+
+.site-nav .current::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    right: 0px;    
+    width: 100%;
+    height: 4px;
+    background-color: rgba(33, 150, 243, 1);
+    border-radius: 2px;
+}
+
+
+/*Contacts*/
+.contact.list {
+    display: flex;
+    align-items: center;
+    margin-left: auto;    
+}
+.contact.list .item:not(:last-child) {
+    margin-right: 50px;    
+}
+.contact {
+    font-weight: var(--secondary-font-weight);
+    line-height: 1.14;
+    letter-spacing: 0.02em;
+    color: var(--main-text-color); 
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}    
+ 
+.contact:hover,
+.contact:focus {
+    color: var(--accent-color);
+}
+
+.contact-icon {
+    margin-right: 10px;
+    align-items: center;
+    fill: currentColor;
+}
+.contact.link {
+    display: flex;
+    align-items: center;
+}
+/*
+.contact-icon:hover,
+.contact-icon:focus {
+    fill: var(--accent-color);
+}*/
+
+
+
+
+/*Footer*/
+.footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: var(--background-black);
+}
+.footer .container {
+    display: flex;
+    align-items: baseline;
+}
+
+.address-box {
+    margin-right: 70px;
+}
+.address {
+    font-style: normal;
+    margin-top: 20px;
+} 
+.maps {
+    color: var(--primary-white-color); 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer-contact {
+    color: var(--secondary-white-color);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.footer .link:hover,
+.footer .link:focus {
+    color: var(--accent-color);
+}
+
+/* footer SOCIAL */
+.footer-social h2 {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: var(--title-font-weight);
+    line-height: 1.14;
+    text-transform: uppercase;
+
+    color: var(--primary-white-color);
+}
+
+.footer-social .list {
+    display: inline-flex;
+    width: 206px;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between;
+}
+
+.footer-social .link {
+    display: block;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    color: var(--primary-white-color);
+    text-align: center;
+
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+/*.footer-social .link:not(:last-child) {
+    margin-right: 10px;
+}*/
+
+.footer-social .link:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-white-color);
+}
+.footer-icon {
+    fill: currentColor;
+}
+
+/* Footer input */
+.footer-form {
+   margin-left: auto;
+}
+.footer-form h2 {
+    margin-bottom: 20px;
+    font-weight: var(--title-font-weight);
+    font-size: 14px;
+    line-height: 1.14;
+    text-transform: uppercase;
+    color: var(--primary-white-color);
+}
+.footer-field {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-input {
+        width: 358px;
+        height: 50px;
+        padding: 15px 16px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
+        border-radius: 4px;
+        background: var(--background-black);
+}
+.btn-send {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    margin-left: 12px; 
+    padding: 10px 28px;   
+    width: 200px;
+    height: 50px;
+    background: #2196F3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: 0;
+
+    font-family: 'Roboto';
+    font-weight: var(--title-font-weight);
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.06em;
+    color: var(--primary-white-color);
+}
+.btn-send:hover,
+.btn-send:focus {
+    background-color: var(--active-accent-color);
+}
+.icon-send {
+margin-left: 10px;
+}
+
+
+
+
+/*Hero*/
+.hero {
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    background-color: #C4C4C4;;
+    text-align: center;
+
+    background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
+    url(../images/corp.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+.hero-title {
+    margin: 0 auto 30px;
+    width: 696px;
+    /*min-height: 120px;*/
+    text-align: center;
+
+
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.36;    
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--primary-white-color);
+}
+
+.hero-btn {
+    border-radius: 4px;
+    border: 0;
+    padding: 10px 32px;
+    min-width: 216px;
+    /* ВОПРОС
+     не смогла побeдить размер кнопки, на один пробел она больше */
+    text-align: center;
+
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: var(--title-font-weight);
+    font-size: var(--secondary-font-size);
+    line-height: 1.88;    
+    text-align: center;
+    letter-spacing: 0.06em;    
+    color: var(--primary-white-color);
+    background-color: var(--accent-color); 
+    
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+    /* color: var(--primary-white-color); */
+    background-color: var(--active-accent-color);
+}
+
+.backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    opacity: 1;
+    transform: translate (100%);
+
+    background: rgba(0, 0, 0, 0.2);
+
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);   
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    
+    width: 528px;
+    height: 581px;            
+    
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    opacity: 1;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-close {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: var(--primary-white-color);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+}
+
+/* .btn-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    background-color: var(--primary-white-color);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-image: url(../images/close.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}*/
+
+.btn-close:hover,
+.btn-close:focus {
+    color: var(--accent-color);
+}
+ .close-icon {
+    fill: currentColor;
+}
+
+/* MODAL FORM */
+.modal-form {
+    /* width: 528px;
+    height: 581px; */
+    width: 100%;
+    height: 100%;
+    padding-top: 40px; 
+    padding-right: 39px; 
+    padding-bottom: 40px;
+    padding-left: 41px;
+}
+.modal-form h2 {
+    width: 100%;
+    margin-bottom: 12px;
+    font-weight: var(--title-font-weight);
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: var(--title-text-color);
+}
+.modal-field {
+    position: relative;
+
+}
+.modal-label {
+    /* position: absolute;
+        top: 50%;
+        left: 42px;
+        transform: translate(-40px, -40px); */
+
+    display: block;
+    text-align: left;
+    margin-bottom: 4px;
+
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    color: var(--main-text-color);
+}
+.modal-input {    
+    width: 448px;
+    height: 40px;
+    padding-left: 42px;
+    margin-bottom: 10px;
+   
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-input:focus,
+.modal-input:hover {
+    border: 1px solid var(--accent-color);
+}
+.modal-input:focus + .modal-icon {
+    fill: var(--accent-color);
+}
+.modal-icon {
+    position: absolute;
+    bottom: 11px;
+    left: 12px;
+    transform: translateY(-50%);
+
+    fill:var(--title-text-color);
+}
+.modal-comment {
+    resize: none;   
+    padding: 12px 16px;   
+    width: 100%;
+    height: 120px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+}
+.modal-comment:focus,
+.modal-comment:hover {
+    border: 1px solid var(--accent-color);
+}
+
+.check-label {
+    position: relative;
+    display: inline-block;
+    
+    
+    padding-left: 20px;
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
+    color: var(--main-text-color);
+}
+
+.check-icon {
+    position: absolute;
+    top: 4px;
+    left: -3px;
+
+    display: inline-block;
+    width: 16px;
+    height: 15px;  
+    border-radius: 2px; 
+    border: 2px solid var(--black-color);
+    
+}
+.checkbox:checked + .check-icon {
+    background-color: var(--accent-color);
+    background-image: url(../images/icon-check.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* background-origin: border-box; */
+    border: 2px solid var(--accent-color);
+}
+
+
+/* .visually-hidden*/ 
+.checkbox {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+.check-link {
+    color: var(--accent-color);   
+}
+.btn-modal {    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    
+    padding: 10px 52px;
+    width: 200px;
+    height: 50px;    
+
+    background: #2196F3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    border: none;
+
+    font-family: inherit;
+    font-weight: var(--title-font-weight);
+    font-size: 16px;
+    line-height: 1.88;
+    letter-spacing: 0.06em;
+    color: var(--primary-white-color);
+}
+.btn-modal:focus,
+.btn-modal:hover {
+    background-color: var(--active-accent-color);
+}
+
+
+
+
+/* Features */
+.features {     
+    padding-top: 62px;
+}
+.features .list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.features li {
+    width: calc((100%-90)/4);
+}
+
+/*h2*/
+.visually-hidden {
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    margin: -1px;
+}
+/* ICONs box */
+.features-bg {
+    width: 270px;
+    height: 120px;
+    padding: 25px 100px;
+    background-color: var(--primary-background);
+    margin-bottom: 30px;
+    border-radius: 4px;    
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+}
+
+
+/*h3*/
+.features-title {
+    font-weight: var(--title-font-weight);
+    font-size: inherit;
+    line-height: 1.14;
+    text-transform: uppercase;    
+    color: var(--title-text-color); 
+
+    margin-bottom: 10px;
+}
+/*.features p*/
+
+
+/*SECTION: Business and Team*/
+.section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+}
+
+/*H2*/
+.section-title {
+    font-weight: var(--title-font-weight);
+    font-size: 36px;
+    line-height: 1.17;
+    text-align: center;  
+    color: var(--title-text-color);
+    
+    margin-bottom: 50px ;    
+}
+
+/* Business */
+.business .list {
+    display: flex;
+}
+.business .item {
+    position: relative;
+}
+.business .item:not(:last-child) {
+      margin-right: 30px;
+}
+.business img {
+    display: block;
+}
+.business-description {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(47, 48, 58, 0.8);
+    padding: 27px 0;
+    text-align: center;
+        
+    font-weight: var(--title-font-weight);
+    font-size: var(--primary-font-size);
+    line-height: 1.14;    
+    /* letter-spacing: 0.03em;
+    text-align: center; */
+    text-transform: uppercase;
+
+    color: rgba(255, 255, 255, 1);    
+}
+
+
+/* Team */
+.team.section {
+    background-color: var(--primary-background);
+}
+
+.team.list {
+    display: flex;
+}
+
+.team-card:not(:last-child) {
+    margin-right: 30px;
+}
+.team-card {    
+    background-color:var(--primary-white-color);
+
+    padding-bottom: 30px;
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 
+    0px 1px 3px rgba(0, 0, 0, 0.12), 
+    0px 1px 1px rgba(0, 0, 0, 0.14), 
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.team-card h3 {
+    font-weight:var(--secondary-font-weight);
+    font-size:var(--secondary-font-size);
+    line-height: 1.19;
+    text-align: center;
+    color:var(--title-text-color);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.team-card p {
+font-size: var(--secondary-font-size);
+line-height: 1.19;
+text-align: center;
+margin-bottom: 16px;
+}
+
+/* TEAM SOCIAL LIST */
+
+.team-social {
+    text-align: center;
+    display: inline-flex;
+    width: 270px;
+    padding-left: 32px;
+    padding-right: 32px;
+    justify-content: space-between;
+}
+
+.team-social .link {
+    display: block;
+    padding: 12px;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+
+    color: #AFB1B8;
+    background-color: var(--primary-white-color) ;
+    border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social .link:hover,
+.team-social .link:focus {
+    background-color: var(--accent-color);
+    color: var(--primary-white-color);
+}
+
+
+.team-social .icon {
+    fill: currentColor;
+}
+
+
+/* CLIENTS list */
+.clients-logo {
+    display: inline-flex;
+    width: 1170px;
+    justify-content: space-between;
+}
+.clients-item {
+    display: block;
+    width: 170px;
+    height: 92px;
+    padding: 16px 32px;
+    color: #AFB1B8;
+    border: 1px solid #AFB1B8;
+    border-radius: 4px;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clients-item:hover,
+.clients-item:focus {
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color)
+}
+.clients-icon {
+    fill: currentColor ;
+}
+
+
+/*Portfolio*/
+.radio-btn {
+    display: flex;
+    margin-bottom: 34px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 575px;
+    justify-content: space-between;    
+}
+
+/*.radio-btn .item:not(:last-child){
+    margin-right: 8px;} 
+    не помещаются кнопки в размеры с макета. А без ширины ul "radio-btn" не центрируется блок кнопок. Почему?*/
+
+.btn {
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: var(--secondary-font-weight);
+    font-size: var(--secondary-font-size);
+    line-height: 1.62;
+    text-align: center;
+    color: var(--title-text-color);
+    background-color: var(--primary-background);
+
+    border-radius: 4px;
+    border: 0;
+    padding: 6px 25px;
+    min-width: 73px;
+    text-align: center;
+    box-shadow: none;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn.current {
+    color: var(--primary-white-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.btn:hover,
+.btn:focus {
+    color: var(--primary-white-color);
+    background-color: var(--accent-color);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+
+/* Cards */
+.work-card.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.work-card .item:not(:nth-child(3n)) {
+    margin-right: 30px;
+}
+
+.work-card .item:not(:nth-last-child(-n + 3)) {
+    margin-bottom: 30px;
+}
+.works.link {
+    box-shadow: none;
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.works.link {
+    display: inline-block;
+}
+.works.link:hover,
+.works.link:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/* .work-card .item:hover,
+.work-card .item:focus {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+} */
+
+.description {
+    border-right: 1px solid var(--secondary-background);
+    border-bottom: 1px solid var(--secondary-background);
+    border-left: 1px solid var(--secondary-background);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 24px;
+}
+
+.work-card img {
+    display: block;
+}
+.work-thumb {
+    position: relative;
+    overflow: hidden;
+}
+.work-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* color: var(--primary-white-color);
+        font-size: 18px;
+        line-height: 1.56; */
+    background-color: rgba(33, 150, 243, 0.9);  
+    
+
+    transform: translateY(101%);
+    /*  при 100% есть синяя полоскя от overlay внизу картинкu img, 
+    верно поставила 101%?*/
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+ .work-overlay .info {
+    font-size: 18px;
+    line-height: 1.56;
+    color: rgba(255, 255, 255, 1);
+    padding: 63px 24px;
+}
+
+.work-card .item:hover .work-overlay,
+.work-card .item:focus .work-overlay {
+    transform: translateY(0);
+}
+
+
+.works h2 {
+    font-weight: var(--title-font-weight);
+    font-size: 18px;
+    line-height: 2;    
+    letter-spacing: 0.06em;    
+    color: var(--title-text-color);
+}
+.works p {
+    font-size: var(--secondary-font-size);
+    line-height: 1.88;
+    color: var(--main-text-color);
+}
+
